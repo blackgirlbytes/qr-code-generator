@@ -7,7 +7,7 @@
 
 body {
 	text-align: center;
-	background-color: #1b2034;
+	background-color: #FFAFCC;
 	color: #fff;
 }
 
@@ -46,7 +46,7 @@ button, a {
 	background: none;
 	cursor: pointer;
 
-	color: #2bcb4b;
+	color: #BDE0FE;
 	font-size: 1.5rem;
 	text-decoration: none;
 }

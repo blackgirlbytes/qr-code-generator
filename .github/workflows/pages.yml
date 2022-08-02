@@ -1,38 +1,42 @@
-name: Deploy React Application
+name: Deploy React App
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Trigger the workflow every time you push to the `main` branch
+  # Using a different branch name? Replace `main` with your branch’s name
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [main]
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_test:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-20.04
 
-    strategy:
-      matrix:
-        node-version: [12.x] # We will deploy with only one version of node  
+    # Allow this job to push changes to your repository
+    permissions:
+      contents: write
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Check out your repository using git
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 16
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm ci, build and test
-        run: |
-          npm ci
-          npm run build --if-present
-          npm test      
-      - name: deploy to gh-pages
+          node-version: 16
+
+      # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
+      - name: Install dependencies
+        run: npm ci
+
+      # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
+      - name: Build React
+        run: npm run build --if-present
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./build   
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # `./dist` is the default Astro build directory.
+          # If you changed that, update it here too.
+          publish_dir: ./build

@@ -8,7 +8,7 @@
 body {
 	text-align: center;
 	background-color: #FFAFCC;
-	color: #fff;
+	color: #335382;
 }
 
 img {
@@ -46,7 +46,7 @@ button, a {
 	background: none;
 	cursor: pointer;
 
-	color: #1b2034;
+	color: #335382;
 	font-size: 1.5rem;
 	text-decoration: none;
 }

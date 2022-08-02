@@ -25,14 +25,6 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
 
-    - name: Archive build output
-      run: "tar --dereference --directory dist/ -cvf artifact.tar ."
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: github-pages
-        path: artifact.tar
-
   deploy:
     environment:
       name: github-pages

@@ -1,4 +1,4 @@
-name: Build astro site
+name: Deploy React to GitHub Pages
 
 on:
   push:

@@ -2,6 +2,9 @@
 
 This project generates a QR code for any URL. 
 
+## Link to live site
+The site is live at this link: https://blackgirlbytes.github.io/qr-code-generator/
+
 ## Feel free to fork this project
 
 This project is open source and under an MIT license. You can use it for your own purposes. Just give me credit, please and thank you. 

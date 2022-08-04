@@ -7,7 +7,7 @@ The site is live at this link: https://blackgirlbytes.github.io/qr-code-generato
 
 ## Feel free to fork this project
 
-This project is open source and under an MIT license. You can use it for your own purposes. Just give me credit, please and thank you. 
+This project is open source and under an [MIT license](https://github.com/blackgirlbytes/qr-code-generator/blob/main/LICENSE). You can use it for your own purposes. Just give me credit, please and thank you. 
 
 ## Instructions to run locally
 
